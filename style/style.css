@@ -1,0 +1,19 @@
+body{
+    /* background-color: black;
+    color: chartreuse;
+    font-family: Arial, Helvetica, sans-serif; */
+    text-align: center;
+}
+.conter{
+    background-color: bisque;
+    height: 100vh;
+}
+.card{
+    margin: 10px 0;
+}
+header{
+    margin: 20px 0;
+}
+.card-img-top{
+    background-color: blue;
+}
