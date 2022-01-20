@@ -24,13 +24,13 @@ const arrayMaterias = [materia1, materia2]
 
 //Realizo el pedido de los datos
 //Agregando una nueva materia ingresada por el estudiante
-function agregarMateria(){
-    
-let n = prompt("Indique nombre de la materia");
-let n1 = parseInt(prompt("Ingrese primer Nota"));
-let n2 = parseInt(prompt("Ingrese Segunda Nota"));
-let n3 = parseInt(prompt("Ingrese Tercera Nota."));
-arrayMaterias.push({ nombre:n, nota1:n1, nota2:n2, nota3:n3 });
+function agregarMateria() {
+
+    let n = prompt("Indique nombre de la materia");
+    let n1 = parseInt(prompt("Ingrese primer Nota"));
+    let n2 = parseInt(prompt("Ingrese Segunda Nota"));
+    let n3 = parseInt(prompt("Ingrese Tercera Nota."));
+    arrayMaterias.push({ nombre: n, nota1: n1, nota2: n2, nota3: n3 });
 
 }
 
@@ -67,27 +67,38 @@ function verificar(array) {
 
 //Finalmente esta funcion muestra los resultados 
 function resultado() {
-    promedio(arrayMaterias);
-    verificar(arrayMaterias);
+
     //Filtro y muestro por consola las materias con mejor promedio
-    const mejorPromedio = arrayMaterias.filter(producto => producto.p>=8);
+    const mejorPromedio = arrayMaterias.filter(producto => producto.p >= 8);
     console.log(mejorPromedio);
 
 
-    let txtResultado="";
+    let txtResultado = "";
     for (let i = 0; i < arrayMaterias.length; i++) {
-        txtResultado=txtResultado+ arrayMaterias[i].nombre +": "+ arrayMaterias[i].p +" -- " + arrayMaterias[i].txtFinal+"\n";
+        txtResultado = txtResultado + arrayMaterias[i].nombre + ": " + arrayMaterias[i].p + " -- " + arrayMaterias[i].txtFinal + "\n";
     }
     console.log(txtResultado)
     alert(txtResultado);
 }
 
-
+promedio(arrayMaterias);
+verificar(arrayMaterias);
 
 //Desafío Complementario--> Ordenar las notas de mayor a menor
-const notas = [4, 2, 5, 1, 3,10,9,6,2,6];
-notas.sort(function(a, b) {
-  return b - a;
-});
-console.log("DESAFÍO COMPLEMENTARIO")
-console.log(notas);
+
+//Ordenado por Nombre
+function SortArrayNombre(x, y) {
+    return x.nombre.localeCompare(y.nombre);
+}
+var ordNombre = arrayMaterias.sort(SortArrayNombre);
+console.log("Ordenado por nombre")
+console.log(ordNombre);
+
+//Ordenar PROMEDIO de Mayor a Menor
+function SortArrayNt(x, y) {
+    return y.p-x.p;
+}
+var ordNt = arrayMaterias.sort(SortArrayNt);
+console.log("Ordenado por Promedio del Mayor al Menor")
+console.log(ordNt);
+
