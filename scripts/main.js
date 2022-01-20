@@ -1,5 +1,5 @@
 /* SIMULADOR INTERACTIVO:
-Se tiene pensado para este Simulador tener un seguimiento de las calificaciones de las materias
+Se tiene pensado para este Simulador tener un seguimiento de las calificaciones de las materias VIGILANTE (Aun no esta definido un nombre especifico)
 Este simulador ahora al ser la primera entrega esta pensada a modo universitario (UTN)
 Pero a futuro se planea agregar toda la informacion en relación a las carreras dentro de la Universidad y 
 que sea tambien a uso para alumnos del secundario.
@@ -10,69 +10,84 @@ que sea tambien a uso para alumnos del secundario.
 -Con estos ultimos datos se envia una Alert con el nombre, promedio y indicando si aprobo o no
 */
 
+
+
+
+//Objetos materias agregadas
+const materia1 = { nombre: "Matemática Discreta", nota1: 5, nota2: 6, nota3: 6 };
+const materia2 = { nombre: "Sistema y Organizaciones", nota1: 8, nota2: 9, nota3: 7 };
+
+
+
+// Array de materias 
+const arrayMaterias = [materia1, materia2]
+
 //Realizo el pedido de los datos
+//Agregando una nueva materia ingresada por el estudiante
+function agregarMateria(){
+    
+let n = prompt("Indique nombre de la materia");
+let n1 = parseInt(prompt("Ingrese primer Nota"));
+let n2 = parseInt(prompt("Ingrese Segunda Nota"));
+let n3 = parseInt(prompt("Ingrese Tercera Nota."));
+arrayMaterias.push({ nombre:n, nota1:n1, nota2:n2, nota3:n3 });
 
-let nombre = prompt("Indique nombre de la materia del primer Año");
-let nota1 = parseInt(prompt("ingrese primer Nota"));
-let nota2 = parseInt(prompt("ingrese Segunda Nota"));
-let nota3 = parseInt(prompt("ingrese Tercera Nota. Para poder ver la nota Promedio precione el Boton 1er Año"));
-
-// const materia1 = {
-//     nombre: "Matematica",
-//     nota1: 7,
-//     nota2: 8,
-//     nota3: 9
-// };
-// console.log(materia1.nombre)
-
-//Clase Materia que contiene constructor y un metodo para poder Promediar
-class Materia {
-
-    constructor(nombre, nota1, nota2, nota3) {
-        this.nombre = nombre;
-        this.nota1 = nota1;
-        this.nota2 = nota2;
-        this.nota3 = nota3;
-    }
-    promediar() {
-        let prom = 0;
-        return prom = (this.nota1 + this.nota2 + this.nota3) / 3;
-        // alert("promedio: "+prom);
-    }
 }
 
-const materia1 = new Materia("Matemática Discreta", 5, 6, 6);
-const materia2 = new Materia("Sistema y Organizaciones", 8, 9, 7);
-// alert(materia2.promediar());
 
 //Con la Funcion promedio calculo el promedio utilizando las 3 notas obtenidas
-function promedio(n1, n2, n3) {
+function promedio(array) {
     let prom = 0;
-    return prom = (n1 + n2 + n3) / 3;
+    for (let i = 0; i < array.length; i++) {
+        prom = (array[i].nota1 + array[i].nota2 + array[i].nota3) / 3;
+        array[i].p = prom;
+    }
 }
+
 
 //Se verifica si Aprobo o va final
-function verificar(prom) {
-    let aprobo = "";
-    if (prom >= 8) {
-        aprobo = " SI Aprobo";
-    } else if (prom >= 6 && prom < 8) {
-        aprobo = " va FINAL ";
-    } else {
-        aprobo = "NO Aprobo";
+function verificar(array) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].p >= 8) {
+            array[i].aprob = true;
+            array[i].estado = true;
+            array[i].txtFinal = "Aprobó la materia";
+        } else if (array[i].p >= 6 && array[i].p < 8) {
+            array[i].aprob = true;
+            array[i].estado = false;
+            array[i].txtFinal = "debe Final";
+        } else {
+            array[i].aprob = false;
+            array[i].estado = false;
+            array[i].txtFinal = "Desaprobó la materia";
+        }
+
     }
-
-    return aprobo;
 }
 
-//Finalmente esta funcion muestra los resultados como primer materia muestra los datos ingresado por Prompt
+//Finalmente esta funcion muestra los resultados 
 function resultado() {
-    let resultProm = promedio(nota1, nota2, nota3);
+    promedio(arrayMaterias);
+    verificar(arrayMaterias);
+    //Filtro y muestro por consola las materias con mejor promedio
+    const mejorPromedio = arrayMaterias.filter(producto => producto.p>=8);
+    console.log(mejorPromedio);
 
-    alert("PROMEDIO--> " + nombre + ": " + resultProm + " --" + verificar(resultProm) + "\nMaterias Guardadas: \n" + materia1.nombre + ": " + materia1.promediar() + "\n" + materia2.nombre + ": " + materia2.promediar());
+
+    let txtResultado="";
+    for (let i = 0; i < arrayMaterias.length; i++) {
+        txtResultado=txtResultado+ arrayMaterias[i].nombre +": "+ arrayMaterias[i].p +" -- " + arrayMaterias[i].txtFinal+"\n";
+    }
+    console.log(txtResultado)
+    alert(txtResultado);
 }
 
-function futuro() {
-    alert("ESTAMOS TRABAJANDO");
-}
 
+
+//Desafío Complementario--> Ordenar las notas de mayor a menor
+const notas = [4, 2, 5, 1, 3,10,9,6,2,6];
+notas.sort(function(a, b) {
+  return b - a;
+});
+console.log("DESAFÍO COMPLEMENTARIO")
+console.log(notas);

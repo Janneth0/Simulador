@@ -14,12 +14,12 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../index.html">Nombre de la pagina</a>
+            <a class="navbar-brand" href="../index.html">Vigilante 0-0</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <!-- <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -42,23 +42,44 @@
                         </ul>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </nav>
     <header>
         <h1> Universidad Tecnológica Nacional</h1>
     </header>
 
-    <div class="container conter">
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <button class="btn btn-primary" type="button" onclick="resultado();">1er AÑO</button>
-            <button class="btn btn-primary" type="button" onclick="futuro();">2do AÑO</button>
-            <button class="btn btn-primary" type="button" onclick="futuro();">3er AÑO</button>
-            <button class="btn btn-primary" type="button" onclick="futuro();">4to AÑO</button>
-            <button class="btn btn-primary" type="button" onclick="futuro();">5to AÑO</button>
-          </div>
+    <main class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>¡HOLA!</h2>
+                <p>Bienvenido nuevamente!!! Estamos en el <em>PRIMER NIVEL</em> <br>Las Instrucciones son claras, leelas atentamente</p>
+                <h3>Instrucciones</h3>
+                <p>Esto es muy facil nada del otro mundo, por ahora solo tenemos dos botones</p>
+                <div style="text-align: start;">
+                    <h4>Botones:</h4>
+                    <ul>
+                        <li> <b>Materia:</b> Claramente es para agregar el nombre y las 3 notas de dicha materia</li>
+                        <li><b>Resultados:</b> Nos mostrara un listado de las materias que tengas anotadas junto con el Promedio Final y si debes o no un Final</li>
+                    </ul>
 
-    </div>
+                </div>
+               
+
+            </div>
+            <div class="col-sm-6" style="margin-top: 100px;">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-primary" type="button" onclick="agregarMateria();">Agregar Materia</button>
+                    <button class="btn btn-primary" type="button" onclick="resultado();">Mostrar Resultados</button>
+        
+                  </div>
+        
+            </div>
+        </div>
+        
+    </main>
+
+    
 
 
 
