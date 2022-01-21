@@ -31,6 +31,7 @@ function agregarMateria() {
     let n2 = parseInt(prompt("Ingrese Segunda Nota"));
     let n3 = parseInt(prompt("Ingrese Tercera Nota."));
     arrayMaterias.push({ nombre: n, nota1: n1, nota2: n2, nota3: n3 });
+    
 
 }
 
@@ -67,7 +68,8 @@ function verificar(array) {
 
 //Finalmente esta funcion muestra los resultados 
 function resultado() {
-
+    promedio(arrayMaterias);
+    verificar(arrayMaterias);
     //Filtro y muestro por consola las materias con mejor promedio
     const mejorPromedio = arrayMaterias.filter(producto => producto.p >= 8);
     console.log(mejorPromedio);
@@ -81,8 +83,7 @@ function resultado() {
     alert(txtResultado);
 }
 
-promedio(arrayMaterias);
-verificar(arrayMaterias);
+
 
 //Desafío Complementario--> Ordenar las notas de mayor a menor
 
@@ -96,7 +97,7 @@ console.log(ordNombre);
 
 //Ordenar PROMEDIO de Mayor a Menor
 function SortArrayNt(x, y) {
-    return y.p-x.p;
+    return y.p - x.p;
 }
 var ordNt = arrayMaterias.sort(SortArrayNt);
 console.log("Ordenado por Promedio del Mayor al Menor")
