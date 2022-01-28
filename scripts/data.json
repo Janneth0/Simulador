@@ -1,0 +1,103 @@
+{
+  "alumno":[
+    {
+      "id":1770123,
+      "name":"Janneth",
+      "surname":"Chura Yujra",
+      "carrera":"0001",
+      "universidad":"utn",
+      "level":1
+
+    }
+  ],
+  "materia": [
+    {
+      "id": 82023,
+      "name": "Sistema y Organizaciones",
+      "level": 1,
+      "n1":8,
+      "n2":8,
+      "nf":8,
+      "curso":true,
+      "final":false,
+      "aprobo":true    
+    },
+    {
+      "id":950702,
+      "name": "Analisis Matematico 1",
+      "level": 1,
+      "n1":1,
+      "n2":1,
+      "nf":1,
+      "curso":false,
+      "final":false,
+      "aprobo":false    
+    },
+    {
+      "id":82020,
+      "name": "Matematica Discreta",
+      "level": 1,
+      "n1":1,
+      "n2":1,
+      "nf":1,
+      "curso":false,
+      "final":false,
+      "aprobo":false  
+    },
+    {
+      "id":82021,
+      "name": "Algoritmo y Estructura de Datos",
+      "level": 1,
+      "n1":1,
+      "n2":1,
+      "nf":1,
+      "curso":false,
+      "final":false,
+      "aprobo":false  
+    },
+    {
+      "id":82022,
+      "name": "Arquitectura de Computadoras",
+      "level": 1,
+      "n1":7,
+      "n2":7,
+      "nf":3,
+      "curso":true,
+      "final":true,
+      "aprobo":false  
+    },
+    {
+      "id":950701,
+      "name": "Algebra y Geometria Analitica",
+      "level": 1,
+      "n1":8,
+      "n2":8,
+      "nf":1,
+      "curso":true,
+      "final":false,
+      "aprobo":true  
+    },
+    {
+      "id":81420,
+      "name": "Quimica",
+      "level": 1,
+      "n1":1,
+      "n2":1,
+      "nf":1,
+      "curso":false,
+      "final":false,
+      "aprobo":false  
+    },
+    {
+      "id":951604,
+      "name": "Ingenieria y Sociedad",
+      "level": 1,
+      "n1":6,
+      "n2":6,
+      "nf":1,
+      "curso":true,
+      "final":false,
+      "aprobo":false  
+    }
+  ]
+}

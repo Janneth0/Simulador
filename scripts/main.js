@@ -10,31 +10,29 @@ que sea tambien a uso para alumnos del secundario.
 -Con estos ultimos datos se envia una Alert con el nombre, promedio y indicando si aprobo o no
 */
 
-
-
-
-//Objetos materias agregadas
-const materia1 = { nombre: "Matemática Discreta", nota1: 5, nota2: 6, nota3: 6 };
-const materia2 = { nombre: "Sistema y Organizaciones", nota1: 8, nota2: 9, nota3: 7 };
-
-
-
+const jsonMateria = '{"materia": [{ "id": 82023,"name": "Sistema y Organizaciones", "level": 1}, { "id":950702,"name": "Analisis Matematico 1","level": 1 }, {"id":82020,"name": "Matematica Discreta", "level": 1 },{"id":82021, "name": "Algoritmo y Estructura de Datos", "level": 1 }, { "id":82022,"name": "Arquitectura de Computadoras", "level": 1 },{"id":950701,"name": "Algebra y Geometria Analitica","level": 1 }, {"id":81420,"name": "Quimica","level": 1}, { "id":951604, "name": "Ingenieria y Sociedad","level": 1}]}';
+const materia = JSON.parse(jsonMateria);
+let mdata = materia.materia;
 // Array de materias 
-const arrayMaterias = [materia1, materia2]
+const arrayMaterias = [{ id: 82020, nombre: "Matematica Discreta", nota1: 5, nota2: 6, nota3: 6 }, { id: 82023, nombre: "Sistema y Organizaciones", nota1: 8, nota2: 9, nota3: 7 }]
 
 //Realizo el pedido de los datos
 //Agregando una nueva materia ingresada por el estudiante
 function agregarMateria() {
+    let idm;
+    let n = document.getElementById("nameMateria").value;
+    let n1 = document.getElementById("nota1").value;
+    let n2 = document.getElementById("nota2").value;
+    let n3 = document.getElementById("nota3").value;
 
-    let n = prompt("Indique nombre de la materia");
-    let n1 = parseInt(prompt("Ingrese primer Nota"));
-    let n2 = parseInt(prompt("Ingrese Segunda Nota"));
-    let n3 = parseInt(prompt("Ingrese Tercera Nota."));
-    arrayMaterias.push({ nombre: n, nota1: n1, nota2: n2, nota3: n3 });
-    
+    for (let i = 0; i < mdata.length; i++) {
+        if (n == mdata[i].name) {
+            idm = mdata[i].id;
+        }
+    }
+    arrayMaterias.push({ id: idm, nombre: n, nota1: n1, nota2: n2, nota3: n3 });
 
 }
-
 
 //Con la Funcion promedio calculo el promedio utilizando las 3 notas obtenidas
 function promedio(array) {
@@ -46,18 +44,20 @@ function promedio(array) {
 }
 
 
-//Se verifica si Aprobo o va final
+// Se verifica si Aprobo o va final
 function verificar(array) {
     for (let i = 0; i < array.length; i++) {
+        if (6 <= array[i].p < 8) {
+            array[i].aprob = true;
+            array[i].estado = false;
+            array[i].txtFinal = "Debe Final";
+        }
         if (array[i].p >= 8) {
             array[i].aprob = true;
             array[i].estado = true;
             array[i].txtFinal = "Aprobó la materia";
-        } else if (array[i].p >= 6 && array[i].p < 8) {
-            array[i].aprob = true;
-            array[i].estado = false;
-            array[i].txtFinal = "debe Final";
-        } else {
+
+        } if (array[i].p < 6) {
             array[i].aprob = false;
             array[i].estado = false;
             array[i].txtFinal = "Desaprobó la materia";
@@ -66,40 +66,58 @@ function verificar(array) {
     }
 }
 
-//Finalmente esta funcion muestra los resultados 
+function creandoForm() {
+    let txthtml = document.getElementById("nameMateria");
+    for (let i = 0; i < mdata.length; i++) {
+        let option = document.createElement("option");
+        option.innerHTML = mdata[i].name;
+        txthtml.appendChild(option);
+    }
+}
+creandoForm()
+
+// Finalmente esta funcion muestra los resultados 
 function resultado() {
     promedio(arrayMaterias);
     verificar(arrayMaterias);
-    //Filtro y muestro por consola las materias con mejor promedio
-    const mejorPromedio = arrayMaterias.filter(producto => producto.p >= 8);
-    console.log(mejorPromedio);
+    let txthtml = document.getElementById("createTable");
+
+    txthtml.innerHTML = "";
 
 
-    let txtResultado = "";
+
+
+    // let txthtml= document.getElementById("createTable");
     for (let i = 0; i < arrayMaterias.length; i++) {
-        txtResultado = txtResultado + arrayMaterias[i].nombre + ": " + arrayMaterias[i].p + " -- " + arrayMaterias[i].txtFinal + "\n";
+        let fila = document.createElement("tr");
+        let fila1 = document.createElement("th");
+        let colname = document.createElement("td");
+        let coln1 = document.createElement("td");
+        let coln2 = document.createElement("td");
+        let coln3 = document.createElement("td");
+        let colest = document.createElement("td");
+        fila1.innerHTML = arrayMaterias[i].id;
+        colname.innerHTML = arrayMaterias[i].nombre;
+        coln1.innerHTML = arrayMaterias[i].nota1;
+        coln2.innerHTML = arrayMaterias[i].nota2;
+        coln3.innerHTML = arrayMaterias[i].nota3;
+        colest.innerHTML = arrayMaterias[i].txtFinal;
+
+        txthtml.appendChild(fila);
+        fila.appendChild(fila1);
+        fila.appendChild(colname)
+        fila.appendChild(coln1)
+        fila.appendChild(coln2)
+        fila.appendChild(coln3)
+        fila.appendChild(colest)
+
     }
-    console.log(txtResultado)
-    alert(txtResultado);
+    //Filtro y muestro por consola las materias con mejor promedio
+    // const mejorPromedio = arrayMaterias.filter(producto => producto.p >= 8);
+    // console.log(mejorPromedio);
+    // txthtml.parentNode.removeChild(txthtml);
 }
 
 
 
-//Desafío Complementario--> Ordenar las notas de mayor a menor
-
-//Ordenado por Nombre
-function SortArrayNombre(x, y) {
-    return x.nombre.localeCompare(y.nombre);
-}
-var ordNombre = arrayMaterias.sort(SortArrayNombre);
-console.log("Ordenado por nombre")
-console.log(ordNombre);
-
-//Ordenar PROMEDIO de Mayor a Menor
-function SortArrayNt(x, y) {
-    return y.p - x.p;
-}
-var ordNt = arrayMaterias.sort(SortArrayNt);
-console.log("Ordenado por Promedio del Mayor al Menor")
-console.log(ordNt);
 
