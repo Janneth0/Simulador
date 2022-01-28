@@ -21,9 +21,9 @@ const arrayMaterias = [{ id: 82020, nombre: "Matematica Discreta", nota1: 5, not
 function agregarMateria() {
     let idm;
     let n = document.getElementById("nameMateria").value;
-    let n1 = document.getElementById("nota1").value;
-    let n2 = document.getElementById("nota2").value;
-    let n3 = document.getElementById("nota3").value;
+    let n1= parseInt(document.getElementById("nota1").value);
+    let n2 = parseInt(document.getElementById("nota2").value);
+    let n3 = parseInt(document.getElementById("nota3").value);
 
     for (let i = 0; i < mdata.length; i++) {
         if (n == mdata[i].name) {
@@ -40,6 +40,7 @@ function promedio(array) {
     for (let i = 0; i < array.length; i++) {
         prom = (array[i].nota1 + array[i].nota2 + array[i].nota3) / 3;
         array[i].p = prom;
+        console.log(prom,array[i].nota1,array[i].nota2,array[i].nota3)
     }
 }
 
@@ -47,17 +48,15 @@ function promedio(array) {
 // Se verifica si Aprobo o va final
 function verificar(array) {
     for (let i = 0; i < array.length; i++) {
-        if (6 <= array[i].p < 8) {
-            array[i].aprob = true;
-            array[i].estado = false;
-            array[i].txtFinal = "Debe Final";
-        }
         if (array[i].p >= 8) {
             array[i].aprob = true;
             array[i].estado = true;
             array[i].txtFinal = "Aprobó la materia";
-
-        } if (array[i].p < 6) {
+        } else if (array[i].p >= 6 && array[i].p < 8) {
+            array[i].aprob = true;
+            array[i].estado = false;
+            array[i].txtFinal = "Debe Final";
+        } else if (array[i].p<6){
             array[i].aprob = false;
             array[i].estado = false;
             array[i].txtFinal = "Desaprobó la materia";

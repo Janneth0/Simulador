@@ -8,6 +8,9 @@
  background-color: bisque; 
     height: 100vh;
 } */
+.ct{
+    text-align: center;
+}
 .card{
     margin: 10px 0;
 }
