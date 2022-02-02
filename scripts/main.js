@@ -13,15 +13,23 @@ que sea tambien a uso para alumnos del secundario.
 const jsonMateria = '{"materia": [{ "id": 82023,"name": "Sistema y Organizaciones", "level": 1}, { "id":950702,"name": "Analisis Matematico 1","level": 1 }, {"id":82020,"name": "Matematica Discreta", "level": 1 },{"id":82021, "name": "Algoritmo y Estructura de Datos", "level": 1 }, { "id":82022,"name": "Arquitectura de Computadoras", "level": 1 },{"id":950701,"name": "Algebra y Geometria Analitica","level": 1 }, {"id":81420,"name": "Quimica","level": 1}, { "id":951604, "name": "Ingenieria y Sociedad","level": 1}]}';
 const materia = JSON.parse(jsonMateria);
 let mdata = materia.materia;
+
 // Array de materias 
 const arrayMaterias = [{ id: 82020, nombre: "Matematica Discreta", nota1: 5, nota2: 6, nota3: 6 }, { id: 82023, nombre: "Sistema y Organizaciones", nota1: 8, nota2: 9, nota3: 7 }]
 
 //Realizo el pedido de los datos
 //Agregando una nueva materia ingresada por el estudiante
+
+//CAMBIE LA MANERA DE USAR EVENTE 
+let miFormulario = document.getElementById("boton");
+miFormulario.onclick = () =>{agregarMateria();}
+
+
+
 function agregarMateria() {
     let idm;
     let n = document.getElementById("nameMateria").value;
-    let n1= parseInt(document.getElementById("nota1").value);
+    let n1 = parseInt(document.getElementById("nota1").value);
     let n2 = parseInt(document.getElementById("nota2").value);
     let n3 = parseInt(document.getElementById("nota3").value);
 
@@ -31,7 +39,8 @@ function agregarMateria() {
         }
     }
     arrayMaterias.push({ id: idm, nombre: n, nota1: n1, nota2: n2, nota3: n3 });
-
+    console.log("Materia Agregada")
+    console.log(arrayMaterias)
 }
 
 //Con la Funcion promedio calculo el promedio utilizando las 3 notas obtenidas
@@ -40,7 +49,7 @@ function promedio(array) {
     for (let i = 0; i < array.length; i++) {
         prom = (array[i].nota1 + array[i].nota2 + array[i].nota3) / 3;
         array[i].p = prom;
-        console.log(prom,array[i].nota1,array[i].nota2,array[i].nota3)
+        console.log(prom, array[i].nota1, array[i].nota2, array[i].nota3)
     }
 }
 
@@ -56,7 +65,7 @@ function verificar(array) {
             array[i].aprob = true;
             array[i].estado = false;
             array[i].txtFinal = "Debe Final";
-        } else if (array[i].p<6){
+        } else if (array[i].p < 6) {
             array[i].aprob = false;
             array[i].estado = false;
             array[i].txtFinal = "Desaprobó la materia";
