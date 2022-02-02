@@ -20,9 +20,11 @@ const arrayMaterias = [{ id: 82020, nombre: "Matematica Discreta", nota1: 5, not
 //Realizo el pedido de los datos
 //Agregando una nueva materia ingresada por el estudiante
 
-//CAMBIE LA MANERA DE USAR EVENTE 
+//CAMBIE LA MANERA DE USAR EVENTOS 
 let miFormulario = document.getElementById("boton");
 miFormulario.onclick = () =>{agregarMateria();}
+let miTabla = document.getElementById("btnTabla");
+miTabla.onclick = () =>{resultado();}
 
 
 
@@ -74,6 +76,7 @@ function verificar(array) {
     }
 }
 
+//Se arma el listado de materias
 function creandoForm() {
     let txthtml = document.getElementById("nameMateria");
     for (let i = 0; i < mdata.length; i++) {
