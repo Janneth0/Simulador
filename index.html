@@ -12,94 +12,97 @@
 </head>
 
 <body>
-    <header>
-        <h1 class="ct"> Universidad Tecnológica Nacional</h1>
-    </header>
-
-    <main class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <h2>¡HOLA!</h2>
-                <p>Bienvenido nuevamente!!! Estamos en el <em>PRIMER NIVEL</em> <br>Las Instrucciones son claras, leelas
-                    atentamente</p>
-                <h3>Instrucciones</h3>
-                <p>Esto es muy facil nada del otro mundo, por ahora solo tenemos dos botones</p>
-                <div style="text-align: start;">
-                    <h4>Botones:</h4>
-                    <ul>
-                        <li> <b>Materia:</b> Claramente es para agregar el nombre y las 3 notas de dicha materia</li>
-                        <li><b>Resultados:</b> Nos mostrara un listado de las materias que tengas anotadas junto con el
-                            Promedio Final y si debes o no un Final</li>
-                    </ul>
-
+    <div class="container">
+        <header>
+            <h1 class="ct"> Calculador de Notas</h1>
+        </header>
+    
+        <main >
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>¡HOLA!</h2>
+                    <p>Bienvenido nuevamente!!! Estamos en el <em>PRIMER NIVEL</em> <br>Las Instrucciones son claras, leelas
+                        atentamente</p>
+                    <h3>Instrucciones</h3>
+                    <p>Esto es muy facil nada del otro mundo, por ahora solo tenemos dos botones</p>
+                    <div style="text-align: start;">
+                        <h4>Botones:</h4>
+                        <ul>
+                            <li> <b>Materia:</b> Claramente es para agregar el nombre y las 3 notas de dicha materia</li>
+                            <li><b>Resultados:</b> Nos mostrara un listado de las materias que tengas anotadas junto con el
+                                Promedio Final y si debes o no un Final</li>
+                        </ul>
+    
+                    </div>
+    
+    
                 </div>
-
-
-            </div>
-            <div class="col-sm-6">
-                <form>
-                    <fieldset>
-                        <legend>Datos de la Materia a Agregar</legend>
-                        <div class="mb-3">
-                            <!-- <label for="disabledSelect" class="form-label">Disabled select menu</label> -->
-                            <select id="nameMateria" class="form-select">
-                                <!-- <option>Disabled select</option> -->
-                            </select>
-                        </div>
-                        <!-- <div class="row g-2 align-items-center"> -->
-                        <div class="form-floating mb-3">
-                            <input type="number" id="nota1" class="form-control" placeholder="Ingrese Nota 1">
-                            <label for="floatingInput">Nota 1</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="number" id="nota2" class="form-control" placeholder="Ingrese Nota 2">
-                            <label for="floatingInput">Nota 2</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="number" id="nota3" class="form-control" placeholder="Ingrese Nota 3">
-                            <label for="floatingInput">Nota 3</label>
-                        </div>
-                        <div class="col-auto">
-                            <div id="liveAlertPlaceholder"></div>
-                            <button class="btn btn-primary" type="reset" id="boton">Agregar
-                                Materia</button>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-
-
-
-            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-            <div class="col-sm-12" style="margin-top: 20px;">
-                <div class="d-grid gap-2 col-3 mx-auto">
-                    <button class="btn btn-primary" type="button" id="btnTabla">Mostrar Resultados</button>
+                <div class="col-sm-6">
+                    <form>
+                        <fieldset>
+                            <legend>Datos de la Materia a Agregar</legend>
+                            <div class="mb-3">
+                                <!-- <label for="disabledSelect" class="form-label">Disabled select menu</label> -->
+                                <select id="nameMateria" class="form-select">
+                                    <!-- <option>Disabled select</option> -->
+                                </select>
+                            </div>
+                            <!-- <div class="row g-2 align-items-center"> -->
+                            <div class="form-floating mb-3">
+                                <input type="number" id="nota1" class="form-control" placeholder="Ingrese Nota 1">
+                                <label for="floatingInput">Nota 1</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="number" id="nota2" class="form-control" placeholder="Ingrese Nota 2">
+                                <label for="floatingInput">Nota 2</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="number" id="nota3" class="form-control" placeholder="Ingrese Nota 3">
+                                <label for="floatingInput">Nota 3</label>
+                            </div>
+                            <div class="col-auto">
+                                <div id="liveAlertPlaceholder"></div>
+                                <button class="btn btn-primary" type="reset" id="boton">Agregar
+                                    Materia</button>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
-                <div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Cod</th>
-                                <th scope="col">Materia</th>
-                                <th scope="col">1er Nota</th>
-                                <th scope="col">2da Nota</th>
-                                <th scope="col">3ra Nota</th>
-                                <th scope="col">Estado</th>
-                            </tr>
-                        </thead>
-                        <tbody id="createTable">
-
-                        </tbody>
-                    </table>
+    
+    
+    
+                <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                <div class="col-sm-12" style="margin-top: 20px;">
+                    <div class="d-grid gap-2 col-3 mx-auto">
+                        <button class="btn btn-primary" type="button" id="btnTabla">Mostrar Resultados</button>
+                    </div>
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Cod</th>
+                                    <th scope="col">Materia</th>
+                                    <th scope="col">1er Nota</th>
+                                    <th scope="col">2da Nota</th>
+                                    <th scope="col">3ra Nota</th>
+                                    <th scope="col">Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="createTable">
+    
+                            </tbody>
+                        </table>
+                    </div>
+    
                 </div>
-
+    
+    
+    
             </div>
-
-
-
-        </div>
-
-    </main>
+    
+        </main>
+    </div>
+   
 
 
 

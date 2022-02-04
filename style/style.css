@@ -5,8 +5,16 @@
     margin: 10px 0;
 }
 header{
-    margin: 20px 0;
+    padding: 20px 0;
 }
 .card-img-top{
     background-color: blue;
+}
+.container{
+    background-color: rgb(167, 239, 241);
+    height: 100vh;
+    padding: 0 10%;
+}
+body{
+    background-color: rgb(110, 224, 228);
 }
