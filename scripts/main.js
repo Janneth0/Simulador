@@ -15,17 +15,18 @@ const materia = JSON.parse(jsonMateria);
 let mdata = materia.materia;
 
 // Array de materias 
-const arrayMaterias = [{ id: 82020, nombre: "Matematica Discreta", nota1: 5, nota2: 6, nota3: 6 }, { id: 82023, nombre: "Sistema y Organizaciones", nota1: 8, nota2: 9, nota3: 7 }]
+const arrayMaterias = [{ id: 82020, name: "Matematica Discreta", nota1: 5, nota2: 6, nota3: 6 }, { id: 82023, name: "Sistema y Organizaciones", nota1: 8, nota2: 9, nota3: 7 }]
 
 //Realizo el pedido de los datos
 //Agregando una nueva materia ingresada por el estudiante
 
 //CAMBIE LA MANERA DE USAR EVENTOS 
 let miFormulario = document.getElementById("boton");
-miFormulario.onclick = () =>{agregarMateria();}
+miFormulario.onclick = () => { agregarMateria(); }
 let miTabla = document.getElementById("btnTabla");
-miTabla.onclick = () =>{resultado();}
-
+miTabla.onclick = () => { resultado(); }
+let alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+let alertTrigger = document.getElementById('boton')
 
 
 function agregarMateria() {
@@ -40,10 +41,33 @@ function agregarMateria() {
             idm = mdata[i].id;
         }
     }
-    arrayMaterias.push({ id: idm, nombre: n, nota1: n1, nota2: n2, nota3: n3 });
-    console.log("Materia Agregada")
-    console.log(arrayMaterias)
+    if (n1 > 0 && n2 > 0 && n3 > 0) {
+        arrayMaterias.push({ id: idm, name: n, nota1: n1, nota2: n2, nota3: n3 });
+        aviso('Se agrego la materia Correctamente!', 'success');
+
+
+    } else {
+
+        if (alertTrigger) {
+            aviso('Upps No agregaste algunas notas!', 'danger');
+        }
+    }
+    creandoForm()
 }
+
+
+
+
+
+function aviso(message, type) {
+
+    let wrapper = document.createElement('div')
+    wrapper.innerHTML = '<div id="txtalert" class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+    alertPlaceholder.append(wrapper)
+}
+
+
+
 
 //Con la Funcion promedio calculo el promedio utilizando las 3 notas obtenidas
 function promedio(array) {
@@ -51,7 +75,6 @@ function promedio(array) {
     for (let i = 0; i < array.length; i++) {
         prom = (array[i].nota1 + array[i].nota2 + array[i].nota3) / 3;
         array[i].p = prom;
-        console.log(prom, array[i].nota1, array[i].nota2, array[i].nota3)
     }
 }
 
@@ -78,11 +101,13 @@ function verificar(array) {
 
 //Se arma el listado de materias
 function creandoForm() {
-    let txthtml = document.getElementById("nameMateria");
+    let nameM = document.getElementById("nameMateria");
     for (let i = 0; i < mdata.length; i++) {
         let option = document.createElement("option");
         option.innerHTML = mdata[i].name;
-        txthtml.appendChild(option);
+        nameM.appendChild(option);
+
+
     }
 }
 creandoForm()
@@ -108,7 +133,7 @@ function resultado() {
         let coln3 = document.createElement("td");
         let colest = document.createElement("td");
         fila1.innerHTML = arrayMaterias[i].id;
-        colname.innerHTML = arrayMaterias[i].nombre;
+        colname.innerHTML = arrayMaterias[i].name;
         coln1.innerHTML = arrayMaterias[i].nota1;
         coln2.innerHTML = arrayMaterias[i].nota2;
         coln3.innerHTML = arrayMaterias[i].nota3;
@@ -128,6 +153,7 @@ function resultado() {
     // console.log(mejorPromedio);
     // txthtml.parentNode.removeChild(txthtml);
 }
+
 
 
 
