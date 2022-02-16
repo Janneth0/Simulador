@@ -15,15 +15,20 @@
     <div class="container">
         <header>
             <h1 class="ct"> Calculador de Notas</h1>
+            <h2 class="transicion ct">Bienvenido</h2>
         </header>
 
         <main>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 ">
+
                     <h2>¡HOLA!</h2>
-                    <p>Bienvenido nuevamente!!! Estamos en el <em>PRIMER NIVEL</em> <br>Las Instrucciones son claras,
+                    <p>Bienvenido nuevamente!!! Estamos en el <em>PRIMER NIVEL</em> <br>Las Instrucciones son
+                        claras,
                         leelas
                         atentamente</p>
+
+
                     <h3>Instrucciones</h3>
                     <p>Esto es muy facil nada del otro mundo, por ahora solo tenemos dos botones</p>
                     <div style="text-align: start;">
@@ -39,12 +44,12 @@
                         <fieldset>
                             <legend>Datos de la Materia a Agregar</legend>
                             <div class="mb-3">
-                                <!-- <label for="disabledSelect" class="form-label">Disabled select menu</label> -->
+
                                 <select id="nameMateria" class="form-select">
-                                    <!-- <option>Disabled select</option> -->
+
                                 </select>
                             </div>
-                            <!-- <div class="row g-2 align-items-center"> -->
+
                             <div class="form-floating mb-3">
                                 <input type="number" id="nota1" class="form-control" placeholder="Ingrese Nota 1">
                                 <label for="floatingInput">Nota 1</label>
@@ -58,7 +63,9 @@
                                 <label for="floatingInput">Nota 3</label>
                             </div>
                             <div class="col-auto">
-                                <div id="liveAlertPlaceholder"></div>
+                                <div id="liveAlertPlaceholder">
+                                    <p>No agregaste materias</p>
+                                </div>
                                 <button class="btn btn-primary" type="reset" id="boton">Agregar
                                     Materia</button>
                             </div>
@@ -66,9 +73,6 @@
                     </form>
                 </div>
 
-
-
-                <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                 <div class="col-sm-12" style="margin-top: 20px;">
                     <div class="d-grid gap-2 col-3 mx-auto">
                         <button class="btn btn-primary" type="button" id="btnTabla">Mostrar Resultados</button>
@@ -92,9 +96,6 @@
                     </div>
 
                 </div>
-
-
-
 
             </div>
 

@@ -9,8 +9,7 @@ que sea tambien a uso para alumnos del secundario.
 -Con el promedio obtenido se verifica si Aprobo o no 
 -Con estos ultimos datos se envia una Alert con el nombre, promedio y indicando si aprobo o no
 */
-// console.log($("h1").css("background","red"));
-// console.log(p1)
+
 
 const jsonMateria = '{"materia": [{ "id": 82023,"name": "Sistema y Organizaciones", "level": 1}, { "id":950702,"name": "Analisis Matematico 1","level": 1 }, {"id":82020,"name": "Matematica Discreta", "level": 1 },{"id":82021, "name": "Algoritmo y Estructura de Datos", "level": 1 }, { "id":82022,"name": "Arquitectura de Computadoras", "level": 1 },{"id":950701,"name": "Algebra y Geometria Analitica","level": 1 }, {"id":81420,"name": "Quimica","level": 1}, { "id":951604, "name": "Ingenieria y Sociedad","level": 1}]}';
 const materia = JSON.parse(jsonMateria);
@@ -67,8 +66,6 @@ function aviso(message, type) {
     wrapper.innerHTML = '<div id="txtalert" class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
     alertPlaceholder.append(wrapper)
 }
-
-
 
 
 //Con la Funcion promedio calculo el promedio utilizando las 3 notas obtenidas
@@ -157,9 +154,14 @@ function resultado() {
 }
 
 
-$("h1").css("background","rgb(174, 222, 235)");
-$("#btn1").click(function(){
+
+$(".transicion").delay(2000).slideUp(1500)
+$("h1").css("background", "rgb(174, 222, 235)").
+    slideUp(0).slideDown(2000);
+
+$("#btn1").click(function () {
     $("#ul").append("<ul><li> <b>Materia:</b> Claramente es para agregar el nombre y las 3 notas de dicha materia</li><li><b>Resultados:</b> Nos mostrara un listado de las materias que tengas anotadas junto con el Promedio Final y si debes o no un Final</li></ul>")
-});   
+
+});
 
 
