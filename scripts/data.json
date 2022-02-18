@@ -1,16 +1,4 @@
-{
-  "alumno":[
-    {
-      "id":1770123,
-      "name":"Janneth",
-      "surname":"Chura Yujra",
-      "carrera":"0001",
-      "universidad":"utn",
-      "level":1
-
-    }
-  ],
-  "materia": [
+ [
     {
       "id": 82023,
       "name": "Sistema y Organizaciones",
@@ -100,4 +88,3 @@
       "aprobo":false  
     }
   ]
-}

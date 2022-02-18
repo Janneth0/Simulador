@@ -14,6 +14,36 @@ que sea tambien a uso para alumnos del secundario.
 const jsonMateria = '{"materia": [{ "id": 82023,"name": "Sistema y Organizaciones", "level": 1}, { "id":950702,"name": "Analisis Matematico 1","level": 1 }, {"id":82020,"name": "Matematica Discreta", "level": 1 },{"id":82021, "name": "Algoritmo y Estructura de Datos", "level": 1 }, { "id":82022,"name": "Arquitectura de Computadoras", "level": 1 },{"id":950701,"name": "Algebra y Geometria Analitica","level": 1 }, {"id":81420,"name": "Quimica","level": 1}, { "id":951604, "name": "Ingenieria y Sociedad","level": 1}]}';
 const materia = JSON.parse(jsonMateria);
 let mdata = materia.materia;
+const URLGET = "../scripts/data.json";
+
+
+//Declaramos la url que vamos a usar para el GET
+// const URLGET = "https://jsonplaceholder.typicode.com/posts"
+//Agregamos un botón con jQuery
+// $("body").prepend('<button id="btn1">GET</button>');
+//Escuchamos el evento click del botón agregado
+$("#btnMaterias").click(() => {
+   
+    $.get(URLGET, function (respuesta, estado) {
+        if (estado === "success") {
+            let misDatos = respuesta;
+            $("#contMaterias").empty();
+            console.log(misDatos)
+
+            for (const dato of misDatos) {
+                $("#contMaterias")
+                     $("#contMaterias").prepend(`<div>
+                                   <h3>${dato.id} : ${dato.name}</h3>
+                                  
+                                  </div>`);
+            }
+           
+            
+        }
+    });
+});
+
+
 
 // Array de materias 
 const arrayMaterias = [{ id: 82020, name: "Matematica Discreta", nota1: 5, nota2: 6, nota3: 6 }, { id: 82023, name: "Sistema y Organizaciones", nota1: 8, nota2: 9, nota3: 7 }]
