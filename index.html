@@ -30,9 +30,9 @@
 
 
                     <h3>Instrucciones</h3>
-                    <p>Esto es muy facil nada del otro mundo, por ahora solo tenemos dos botones</p>
+                    <p>Esto es muy facil nada del otro mundo, presionar los botones que te daran información</p>
                     <div style="text-align: start;">
-                        <button class="btn btn-primary" id="btn1">Botones</button>
+                        <button class="btn btn-outline-primary" id="btn1">Botones</button>
                         <!-- <h4 id="btn1" class="button">Botones:</h4> -->
                         <div id="ul"></div>
                     </div>
@@ -66,16 +66,18 @@
                                 <div id="liveAlertPlaceholder">
                                     <!-- <p>No agregaste materias</p> -->
                                 </div>
-                                <button class="btn btn-primary" type="reset" id="boton">Agregar
+                                <button class="btn btn-outline-primary" type="reset" id="boton">Agregar
                                     Materia</button>
                             </div>
                         </fieldset>
                     </form>
                 </div>
-
-                <div class="col-sm-12" style="margin-top: 20px;">
+            </div>
+            <div class="row tablas">
+                <div class="col-lg-6 col-md-12  col-sm-6   " style="margin-top: 20px;">
                     <div class="d-grid gap-2 col-3 mx-auto">
-                        <button class="btn btn-primary" type="button" id="btnTabla">Mostrar Calificaciones</button>
+                        <button class="btn btn-outline-primary" type="button" id="btnTabla">Mostrar
+                            Calificaciones</button>
                     </div>
                     <div>
                         <table class="table">
@@ -96,62 +98,40 @@
                     </div>
 
                 </div>
-                <div class="col-sm-12">
+                <div class="col-lg-6 col-md-12  col-sm-6  style="margin-top: 20px;">
                     <div class="d-grid gap-2 col-3 mx-auto">
-                        <button  class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#contMaterias" aria-expanded="false" aria-controls="contMaterias" id="btnMaterias">Mostrar Materias</button>
+                        <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#contMaterias" aria-expanded="false" aria-controls="contMaterias"
+                            id="btnMaterias">Mostrar Materias</button>
                     </div>
-                    <div class="collapse" id="contMaterias" >
+                    <div class="collapse" id="contMaterias">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nombre</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablamat">
 
+
+
+                            </tbody>
+                        </table>
                     </div>
-                        <!-- <button class="btn btn-primary btnM1" type="button" data-bs-toggle="collapse" data-bs-target="#btnM1" aria-expanded="false" aria-controls="btnM1">1ER Año</button>
-                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#btnM2" aria-expanded="false" aria-controls="btnM2">2DO Año</button>
-                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#btnM3" aria-expanded="false" aria-controls="btnM3">3ER Año</button>
-                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#btnM4" aria-expanded="false" aria-controls="btnM4">4TO Año</button>
-                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#btnM5" aria-expanded="false" aria-controls="btnM5">5TO Año</button>
-                
-                      <div class="row">
-                       
-                          <div class="collapse multi-collapse" id="btnM1">
-                            <div class="card card-body contM1">
-                              MATERIAS 1ER AÑO
-                            </div>
-                          </div>
-                      
-                     
-                          <div class="collapse multi-collapse" id="btnM2">
-                            <div class="card card-body">
-                             MATERIAS 2DO AÑO
-                            </div>
-                          </div>
-                      
-                     
-                            <div class="collapse multi-collapse" id="btnM3">
-                              <div class="card card-body">
-                                MATERIAS 3ER AÑO
-                              </div>
-                            </div>
-                         
-                            <div class="collapse multi-collapse" id="btnM4">
-                              <div class="card card-body">
-                               MATERIAS 4TO AÑO
-                              </div>
-                            </div>
-                       
-                            <div class="collapse multi-collapse" id="btnM5">
-                              <div class="card card-body">
-                               MATERIAS 5TO AÑO
-                              </div>
-                      </div>
-                      </div>
- -->
-
 
                 </div>
-
             </div>
-
         </main>
+
+        
     </div>
+
+    <footer >
+        <p>© 2022 Janneth Chura Yujra | All rights reserved</p>
+    </footer>
+
+    
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

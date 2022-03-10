@@ -1,20 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans:ital@1&display=swap');
+
 .ct{
     text-align: center;
+    /* background-color: rgb(185, 174, 235); */
 }
 .card{
     margin: 10px 0;
 }
 header{
     padding: 20px 0;
+    font-family: 'Bebas Neue', cursive;
 }
 .card-img-top{
     background-color: blue;
 }
 .container{
-    background-color: rgb(167, 239, 241);
+    background-color: rgb(26, 7, 70);
     height: 100vh;
-    padding: 0 10%;
+    padding: 0 5%;
+
+    color: aliceblue;
 }
 body{
-    background-color: rgb(110, 224, 228);
+    color: aliceblue !important;
+    background-color: rgb(9, 3, 44);
+    font-family: 'Josefin Sans', sans-serif;
+}
+.row,th,td,footer{
+    color: aliceblue;
+}
+footer{
+    text-align: center;
+    position: fixed;
+    bottom: 0vh;
+    width: 100%;
+    padding: 10px;
+    margin-top: 50px;
+    background-color: rgb(30, 12, 92);
+}
+.tablas{
+    padding-bottom: 15%;
 }
